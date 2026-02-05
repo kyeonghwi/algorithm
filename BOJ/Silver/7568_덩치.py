@@ -1,0 +1,15 @@
+import sys
+
+input = sys.stdin.readline
+n = int(input())
+stu=[]
+for _ in range(n):
+    x,y=map(int,input().split())
+    stu.append((x,y))
+
+for i in stu:
+    rank=1
+    for j in stu:
+        if i[0]< j[0] and i[1] < j[1]:
+            rank+=1
+    print(rank, end=" ")
