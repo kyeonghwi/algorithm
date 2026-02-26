@@ -1,32 +1,32 @@
+import sys
+from collections import deque
+
+INF = 1e+9
 n = int(input())
-
-INF = int(1e9)
-dp = [[INF] * (1 << n) for _ in range(n)]
-
-
-def dfs(x, visited):
-    if visited == (1 << n) - 1:     # 모든 도시를 방문했다면
-        if graph[x][0]:             # 출발점으로 가는 경로가 있을 때
-            return graph[x][0]
-        else:                       # 출발점으로 가는 경로가 없을 때
-            return INF
-
-    if dp[x][visited] != INF:       # 이미 최소비용이 계산되어 있다면
-        return dp[x][visited]
-
-    for i in range(1, n):           # 모든 도시를 탐방
-        if not graph[x][i]:         # 가는 경로가 없다면 skip
-            continue
-        if visited & (1 << i):      # 이미 방문한 도시라면 skip
-            continue
-
-        # 점화식 부분
-        dp[x][visited] = min(dp[x][visited], dfs(i, visited | (1 << i)) + graph[x][i])
-    return dp[x][visited]
-
-
-graph = []
+mat = []
 for i in range(n):
-    graph.append(list(map(int, input().split())))
+    mat.append(list(map(int, sys.stdin.readline().split())))
+    
+dp = [[INF for _ in range(1<<n)] for _ in range(n)]    #모든 방문 가능 경우의 수
+chk = 1
 
-print(dfs(0, 1))
+
+dp[0][chk]=0
+queue = deque([[0, chk]])
+answer = [INF for _ in range(n)]
+while queue:
+    node, chk = queue.popleft()
+    if chk==(1<<n)-1:
+        if mat[node][0]!=0:
+            answer[node] = dp[node][chk] + mat[node][0]
+        else:
+            dp[node][chk] = INF
+    else:
+        for i in range(1, n):
+            if (mat[node][i]!= 0)and ((chk & (1<<i))==0):    #연결되어 있으며 방문한적 없을때
+                if dp[node][chk] + mat[node][i] < dp[i][chk | (1<<i)]:
+                    dp[i][chk | (1<<i)] = dp[node][chk] + mat[node][i]
+                    queue.append([i, chk | (1<<i)])
+
+answer = min(answer)
+print(answer)
