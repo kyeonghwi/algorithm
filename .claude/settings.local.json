@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(cd D:/algorithm && python -X utf8 convert_to_baekjoonhub.py 2>&1 | grep -E \"총|SKIP\")",
-      "Bash(cd D:/algorithm && python -X utf8 convert_to_baekjoonhub.py --run 2>&1)",
-      "Bash(cd D:/algorithm && rm convert_to_baekjoonhub.py && ls)"
-    ]
-  }
-}
