@@ -1,0 +1,41 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-03-13T15:50:18.904Z",
+  "activeFeatures": [
+    "algorithm"
+  ],
+  "primaryFeature": "algorithm",
+  "features": {
+    "algorithm": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-13T15:50:18.903Z",
+        "lastUpdated": "2026-03-13T15:50:18.903Z"
+      },
+      "lastFile": "D:/algorithm/convert_to_baekjoonhub.py"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-03-13T15:50:18.903Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-03-13T15:50:18.904Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-03-13T15:50:18.903Z",
+      "feature": "algorithm",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}
